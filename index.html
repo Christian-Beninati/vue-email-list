@@ -29,9 +29,15 @@
     <div id="root" class="p-5">
 
         <!-- List Email -->
-        <ul>
+        <ul v-if ="isLoading">
             <li v-for="email in emails">{{ email }}</li>
         </ul>
+
+        <!-- Loading in progress -->
+        <div v-else>
+            <i class="fas fa-spinner fa-spin"></i> 
+            <span>Loading in progress...</span>
+        </div>
         
         <!-- Error Message -->
         <div v-if="errorMessage" class=" alert alert-danger">

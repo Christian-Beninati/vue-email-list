@@ -17,7 +17,9 @@ const app = createApp({
             // Array per memorizzare gli indirizzi email generati
             emails: [],
             // Messaggio di errore in caso di problemi con l'API
-            errorMessage: ''
+            errorMessage: '',
+            // Stato del caricamento (flag impostato su false)
+            isLoading: false
         }          
     },
 
@@ -33,6 +35,12 @@ const app = createApp({
                     if (response.data.success) {
                         // Aggiungo l'indirizzo email all'array 'emails'
                         this.emails.push(response.data.response);
+                    }
+
+                    // Controllo se sono stati generati tutti e 10 gli indirizzi email
+                    if (this.emails.length === 10) {
+                        // Imposto su true (fase di caricamento)
+                        this.isLoading = true;  
                     }
                 })
                 .catch(error => {

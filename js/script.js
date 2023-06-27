@@ -1,5 +1,7 @@
 console.log('Vue OK', Vue);
 
+const endpoint = 'https://flynn.boolean.careers/exercises/api/random/mail'
+
 // Estrapolo il metodo creatApp
 const { createApp } = Vue;
 
@@ -8,7 +10,7 @@ const app = createApp({
     // dati iniziali
     data(){    
         return {
-            
+
         }          
         
     },
